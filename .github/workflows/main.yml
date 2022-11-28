@@ -10,7 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
+        uses: checker-02/trial-gha@v1.1
+ # Uses an action in the root directory
         id: hello
         with:
           who-to-greet: 'Mona the Octocat'
