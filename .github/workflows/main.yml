@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Hello world action step
         uses: checker-02/trial-gha@v1.1.4
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         
       # Use the output from the `hello` step
       - name: Get the output time
