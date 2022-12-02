@@ -13,8 +13,8 @@ async function run() {
     console.log(process.env.GITHUB_TOKEN)
 
     try {
-        /*
-        const payload = {
+
+        /*const payload = {
             "action": "opened",
             "issue": {
                 "active_lock_reason": null,
@@ -280,12 +280,13 @@ async function makeRequest(link) {
         url: link,
         headers: { 
           'Authorization': `Basic ${process.env.GITHUB_TOKEN}`, 
+          //'Authorization': 'Basic c3VyeWEtZGU6Z2hwX2s4bllYSWNyYnBkbFRkRnI0Q2Y3d2xjaGxqMVF2czRkdUMyYg==',
           'Cookie': '_octo=GH1.1.919301032.1669750838; logged_in=no'
         }
       };
     try {
         const resp = await axios(config);
-        let y = await resp.json();
+        let y = await resp.data;
         return y;
     }
     catch(error) {
