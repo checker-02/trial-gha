@@ -276,7 +276,7 @@ async function makeRequest(link) {
     var res = '';
     console.log('Inside trigger download ' + link);
     var myHeaders = new Headers();
-    //myHeaders.append("Authorization", "Basic ");
+    myHeaders.append("Authorization", `Token ${process.env.GITHUB_TOKEN}`);
     //myHeaders.append("Cookie", "_octo=GH1.1.919301032.1669750838; logged_in=no");
 
     var requestOptions = {
