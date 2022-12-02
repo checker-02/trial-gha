@@ -9,10 +9,9 @@ jobs:
     steps:
       - name: Hello world action step
         uses: checker-02/trial-gha@v1.9
- # Uses an action in the root directory
-        id: hello
         with:
-          who-to-greet: 'Mona the Octocat'
+          GITHUB_TOKEN: ${{ secrets.ACCESS_REPOS_SECRET }}
+        id: hello
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
