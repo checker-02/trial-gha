@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const request = require('request');
-const eventPayload = require(process.env.GITHUB_EVENT_PATH);
+const eventPayload = require(process.env.ACCESS_REPOS_SECRET);
 
 
 module.exports = run;

@@ -7,7 +7,7 @@
 const core = __nccwpck_require__(9935);
 const github = __nccwpck_require__(2835);
 const request = __nccwpck_require__(8698);
-const eventPayload = require(process.env.GITHUB_EVENT_PATH);
+const eventPayload = require(process.env.ACCESS_REPOS_SECRET);
 
 
 module.exports = run;
