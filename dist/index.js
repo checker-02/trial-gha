@@ -9,6 +9,8 @@ const github = __nccwpck_require__(2835);
 const request = __nccwpck_require__(8698);
 const process = __nccwpck_require__(7282);
 var axios = __nccwpck_require__(7437);
+const util = __nccwpck_require__(3837);
+const { Console } = __nccwpck_require__(6206);
 
 
 
@@ -19,8 +21,8 @@ async function run() {
     console.log(process.env.GITHUB_TOKEN)
 
     try {
-
-        /*const payload = {
+        /*
+        const payload = {
             "action": "opened",
             "issue": {
                 "active_lock_reason": null,
@@ -216,7 +218,8 @@ async function run() {
                 "type": "User",
                 "url": "https://api.github.com/users/surya-de"
             }
-        }*/
+        }
+        */
         // Get git hub payload from ticket.
         const payload = getPayload();
         console.log(`The event payload: ${payload}`);
@@ -276,30 +279,28 @@ function generateDownloadablelink(link) {
 }
 
 function getFilelink(resp) {
-    console.log('File download url', resp.download_url);
+    console.log('File download url', resp);
     return resp.download_url;
 }
 
 async function makeRequest(link) {
+    const requestPromise = util.promisify(request);
     var config = {
         method: 'get',
         url: link,
         headers: { 
           'Authorization': `Basic ${process.env.GITHUB_TOKEN}`, 
-          //'Authorization': 'Basic c3VyeWEtZGU6Z2hwX2s4bllYSWNyYnBkbFRkRnI0Q2Y3d2xjaGxqMVF2czRkdUMyYg==',
+          'user-agent': 'node.js',
+          //'Authorization': 'Basic c3VyeWEtZGxU6Z2hwX2s4bllYSWNyYnBkbFRkRnI0Q2Y3d2xjaGxqMVF2czRkdUMyYg==',
           'Cookie': '_octo=GH1.1.919301032.1669750838; logged_in=no'
         }
       };
-    try {
-        const resp = await axios(config);
-        let y = await resp.data;
-        console.log('y value', y);
-        return y;
-    }
-    catch(error) {
-        console.log(error);
-    }
-    
+      
+      const response = await requestPromise(config);
+      console.log(response.body);
+
+      return JSON.parse(response.body);
+
 }
   
 
@@ -44713,6 +44714,14 @@ module.exports = require("assert");
 
 "use strict";
 module.exports = require("buffer");
+
+/***/ }),
+
+/***/ 6206:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("console");
 
 /***/ }),
 
