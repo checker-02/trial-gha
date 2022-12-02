@@ -279,7 +279,7 @@ async function makeRequest(link) {
         method: 'get',
         url: link,
         headers: { 
-          'Authorization': `Token ${process.env.GITHUB_TOKEN}`, 
+          'Authorization': `Basic ${process.env.GITHUB_TOKEN}`, 
           'Cookie': '_octo=GH1.1.919301032.1669750838; logged_in=no'
         }
       };
