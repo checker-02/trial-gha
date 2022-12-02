@@ -293,7 +293,7 @@ async function makeRequest(link) {
     };
 
     try {
-        const resp = await fetch(link, requestOptions);
+        const resp = await fetch.fetch(link, requestOptions);
         let y = await resp.json();
         return y;
     }
