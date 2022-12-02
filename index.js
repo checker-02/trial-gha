@@ -2,7 +2,8 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const request = require('request');
 const process = require('process');
-const fetch = require("node-fetch");
+var axios = require('axios');
+
 
 
 module.exports = run;
@@ -274,20 +275,16 @@ function getFilelink(resp) {
 }
 
 async function makeRequest(link) {
-    var res = '';
-    console.log('Inside trigger download ' + link);
-    var myHeaders = new fetch.Headers();
-    myHeaders.append("Authorization", `Token ${process.env.GITHUB_TOKEN}`);
-    myHeaders.append("Cookie", "_octo=GH1.1.919301032.1669750838; logged_in=no");
-
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
-
+    var config = {
+        method: 'get',
+        url: link,
+        headers: { 
+          'Authorization': `Token ${process.env.GITHUB_TOKEN}`, 
+          'Cookie': '_octo=GH1.1.919301032.1669750838; logged_in=no'
+        }
+      };
     try {
-        const resp = await fetch.fetch(link, requestOptions);
+        const resp = await axios(config);
         let y = await resp.json();
         return y;
     }
