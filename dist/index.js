@@ -7,14 +7,20 @@
 const core = __nccwpck_require__(9935);
 const github = __nccwpck_require__(2835);
 const request = __nccwpck_require__(8698);
-const eventPayload = require(process.env.GITHUB_TOKEN);
+
 
 
 module.exports = run;
 
 async function run() {
     console.log("Identifying new issue in leaks repositoy");
-    console.log(eventPayload);
+    try{
+        const eventPayload = require(process.env.GITHUB_EVENT_PATH);
+        console.log(eventPayload);
+    }
+    catch(error) {
+        console.log(error);
+    }
 
     try {
         /*
