@@ -233,7 +233,8 @@ async function run() {
 }
 
 function getPayload() {
-    return JSON.stringify(github.context.payload, undefined, 2);
+    //return JSON.stringify(github.context.payload, undefined, 2);
+    return github.context.payload;
 }
 
 function getConfiglink(body) {
