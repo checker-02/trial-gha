@@ -14,13 +14,7 @@ module.exports = run;
 
 async function run() {
     console.log("Identifying new issue in leaks repositoy");
-    try{
-        const eventPayload = require(process.env.GITHUB_EVENT_PATH);
-        console.log(eventPayload);
-    }
-    catch(error) {
-        console.log(error);
-    }
+
 
     try {
         /*
