@@ -291,8 +291,8 @@ async function makeRequest(link) {
         let y = await resp.json();
         return y;
     }
-    catch {
-        console.log('Error making requst');
+    catch(error) {
+        console.log(error);
     }
     
 }
