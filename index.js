@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const request = require('request');
 const process = require('process');
+const fetch = require("node-fetch");
 
 
 module.exports = run;
