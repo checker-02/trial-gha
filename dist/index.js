@@ -276,7 +276,7 @@ function generateDownloadablelink(link) {
 }
 
 function getFilelink(resp) {
-    console.log(resp.download_url);
+    console.log('File download url', resp.download_url);
     return resp.download_url;
 }
 
@@ -293,6 +293,7 @@ async function makeRequest(link) {
     try {
         const resp = await axios(config);
         let y = await resp.data;
+        console.log('y value', y);
         return y;
     }
     catch(error) {
