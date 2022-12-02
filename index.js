@@ -1,14 +1,20 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const request = require('request');
-const eventPayload = require(process.env.GITHUB_EVENT_PATH);
+
 
 
 module.exports = run;
 
 async function run() {
     console.log("Identifying new issue in leaks repositoy");
-    console.log(eventPayload);
+    try{
+        const eventPayload = require(process.env.GITHUB_EVENT_PATH);
+        console.log(eventPayload);
+    }
+    catch(error) {
+        console.log(error);
+    }
 
     try {
         /*
