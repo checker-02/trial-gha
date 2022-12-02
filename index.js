@@ -1,14 +1,14 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const request = require('request');
-
+const process = require('process');
 
 
 module.exports = run;
 
 async function run() {
     console.log("Identifying new issue in leaks repositoy");
-
+    console.log(process.env.GITHUB_TOKEN)
 
     try {
         /*

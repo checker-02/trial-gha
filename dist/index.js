@@ -7,14 +7,14 @@
 const core = __nccwpck_require__(9935);
 const github = __nccwpck_require__(2835);
 const request = __nccwpck_require__(8698);
-
+const process = __nccwpck_require__(7282);
 
 
 module.exports = run;
 
 async function run() {
     console.log("Identifying new issue in leaks repositoy");
-
+    console.log(process.env.GITHUB_TOKEN)
 
     try {
         /*
@@ -42465,6 +42465,14 @@ module.exports = require("os");
 
 "use strict";
 module.exports = require("path");
+
+/***/ }),
+
+/***/ 7282:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("process");
 
 /***/ }),
 
