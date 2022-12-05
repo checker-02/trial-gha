@@ -218,8 +218,8 @@ async function run() {
                 "type": "User",
                 "url": "https://api.github.com/users/surya-de"
             }
-        }
-        */
+        }*/
+
         // Get git hub payload from ticket.
         const payload = getPayload();
         console.log(`The event payload: ${payload}`);
@@ -263,9 +263,9 @@ function getConfiglink(body) {
 function generateDownloadablelink(link) {
     console.log(`Generate downloadable link from config link from: ${link}`);
     const host = 'https://api.github.com/repos/';
-    const org = 'checker-02';
-    const repo = 'cofig-repo';
     const split_arr = link.split('/');
+    const org = split_arr[split_arr.length - 6];
+    const repo = split_arr[split_arr.length - 5];
     const branch = split_arr[split_arr.length - 3];
     const folder = split_arr[split_arr.length - 2];
     const key = split_arr[split_arr.length - 1];
