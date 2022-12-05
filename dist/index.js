@@ -230,8 +230,8 @@ async function run() {
         const resp = await makeRequest(download_link);
         const final_link = getFilelink(resp);
         console.log(final_link);
-        //const api_payload = await makeRequest(final_link);
-        //console.log(api_payload);
+        const api_payload = await makeRequest(final_link);
+        console.log(api_payload);
     } catch (error) {
         core.setFailed(error.message);
     } finally {
@@ -291,7 +291,6 @@ async function makeRequest(link) {
         headers: { 
           'Authorization': `Basic ${process.env.GITHUB_TOKEN}`, 
           'user-agent': 'node.js',
-          //'Authorization': 'Basic c3VyeWEtZGxU6Z2hwX2s4bllYSWNyYnBkbFRkRnI0Q2Y3d2xjaGxqMVF2czRkdUMyYg==',
           'Cookie': '_octo=GH1.1.919301032.1669750838; logged_in=no'
         }
       };
