@@ -1,8 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+name: 'Trigger Downloader'
+description: 'Trigger Leaks downloader on issue creation'
 runs:
   using: 'node16'
   main: 'dist/index.js'
