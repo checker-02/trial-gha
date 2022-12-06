@@ -219,6 +219,8 @@ async function run() {
         console.log(`The event payload: ${payload}`);
         // Parse body to get config file link.
         const link = getConfiglink(payload.issue.body);
+        console.log(link);
+        /*
         const download_link = generateDownloadablelink(link);
         // Trigger API for download.
         const resp = await makeRequest(download_link);
@@ -226,6 +228,7 @@ async function run() {
         console.log(final_link);
         const api_payload = await makeRequest(final_link);
         console.log(api_payload);
+        */
     } catch (error) {
         core.setFailed(error.message);
     } finally {
