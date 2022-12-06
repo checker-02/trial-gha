@@ -222,10 +222,9 @@ async function run() {
 
         // Get git hub payload from ticket.
         const payload = getPayload();
-        console.log(`The event payload: ${payload}`);
+        console.log('The event payload:', payload);
         // Parse body to get config file link.
         const link = getConfiglink(payload.issue.body);
-        console.log(link);
         /*
         const download_link = generateDownloadablelink(link);
         // Trigger API for download.
